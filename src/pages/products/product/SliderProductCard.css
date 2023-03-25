@@ -1,0 +1,34 @@
+.show-more-btn {
+    outline: 0;
+    border: 0;
+    height: 50px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: #0fbba7;
+    border-bottom: 3px solid #0cc0ab;
+    flex-grow: 1;
+    border-radius: 5px;
+    
+}
+
+.divider {
+    margin: 20px 0;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+    
+        font-size: 18px;
+        font-weight: 500;
+        display: block;
+}
+
+

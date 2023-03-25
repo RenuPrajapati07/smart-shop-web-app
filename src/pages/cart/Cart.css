@@ -1,0 +1,41 @@
+table tr td img {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover;
+    display: flex;
+}
+
+.delete-btn {
+    cursor: pointer;
+    font-size: 20px;
+    
+}
+
+.delete-btn:hover {
+    font-size: 24px;
+}
+
+th, td {
+    font-size: 14px;
+    padding-top: 10px;
+    padding-right: 100px;
+}
+
+.divider {
+    margin: 20px 0;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+table {
+    table-layout: flex;
+}
+
+tbody{
+    display: flex;
+}
+
+thead {
+    display: flex;
+}

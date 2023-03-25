@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+//components
+import {Header, Footer, AddProduct} from "./components"
+//pages
+import {Home, Contact, Login, Register, Reset, Admin, Cart, ProductSlider, AllProduct} from "./pages";
+import SpecificProduct from "./pages/products/product/SpecificProduct"
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+      <ToastContainer />
+      <Header/>
+        <Routes>
+          <Route path="/"  element={<Home />} />
+          <Route path="/contact"  element={<Contact />} /> 
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/reset" element={<Reset />} />
+          <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product-slider" element={<ProductSlider />} />
+          <Route path="/product-type/men" element={<AllProduct type={'Mens Wear'} />} />
+          <Route path="/product-type/women" element={<AllProduct type={'Womens Wear'} />} />
+          <Route path="/product/:type/:id" element={<SpecificProduct />} />
+        </Routes>
+      <Footer/>
+      </BrowserRouter>
+    </>
   );
 }
 
