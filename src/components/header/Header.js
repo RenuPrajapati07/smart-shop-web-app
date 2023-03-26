@@ -1,22 +1,18 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from './Header.module.scss'
 import { Link, NavLink, useNavigate} from 'react-router-dom';
 import {FaShoppingCart, FaTimes, FaUserCircle} from 'react-icons/fa';
 import {HiOutlineMenu} from 'react-icons/hi'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from '../../firebase/config';
+import { auth, db } from '../../firebase/config';
 import { toast, ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { SET_ACTIVE_USER } from '../../redux/slice/authSlice';
 import { REMOVE_ACTIVE_USER } from '../../redux/slice/authSlice';
 import ShowOnLogin, { ShowOnAdminLogin, ShowOnLogout } from '../hiddenLink/hiddenLink';
-import Cart from '../../pages/cart/Cart';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 const Header = () => {
-
-  const totalQuantity = useSelector(state=> state.cart.TotalQuantity)
-
-  console.log(totalQuantity)
 
   const [showMenu, setShowMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
@@ -97,13 +93,52 @@ const Header = () => {
     </div>
   )
 
+  function GetCurrentUser() {
+    const [user, setUser] = useState('')
+
+    useEffect(() => {
+      onAuthStateChanged(auth, (userlogged) => {
+        if(userlogged) {
+          const getUsers = async () => {
+            const q = query(collection(db,"users"), where("uid","==",userlogged.uid))
+            console.log(q)
+            const data = await getDocs(q);
+            setUser(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+          };
+          getUsers();
+        }
+        else{
+          setUser(null);
+        }
+      })
+    },[])
+    return user
+  }
+  const loggeduser = GetCurrentUser();
+
+  const[cartdata, setcartdata] = useState([]);
+
+  if(loggeduser) {
+    const getcartdata = async () => {
+      const cartArray = [];
+      const path = `cart-${loggeduser[0].uid}`
+      getDocs(collection(db, path)). then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          cartArray.push({ ...doc.data(), id: doc.id})
+        });
+        setcartdata(cartArray)
+      }).catch('Error error error')
+    }
+    getcartdata()
+  }
+
   const cart = (
     <span className={styles.cart} onClick={() => setShowCart(true)}>
       <Link to="/cart">
         Cart
         <FaShoppingCart size={20}/>
         <ShowOnLogin>
-        <p>{totalQuantity}</p>
+        <p>{cartdata.length}</p>
         </ShowOnLogin>
       </Link>
     </span>

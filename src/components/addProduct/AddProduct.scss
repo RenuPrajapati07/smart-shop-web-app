@@ -45,6 +45,13 @@
     font-size: 17px;
 }
 
+
+.addprod-form textarea:focus {
+  outline: 2px solid #0FE8CD;
+  border: none;
+}
+
+
 .addprod-form input:focus {
     outline: 2px solid #0FE8CD;
     border: none;

@@ -1,24 +1,26 @@
-table tr td img {
-    width: 50px !important;
-    height: 50px !important;
-    object-fit: cover;
-    display: flex;
-}
+@import "../../css-config/mixins.scss";
 
-.delete-btn {
-    cursor: pointer;
-    font-size: 20px;
+table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
 }
 
-.delete-btn:hover {
-    font-size: 24px;
+.tr-1 th, td {
+    font-size: 15px;
+    padding-right: 130px;
+    padding-top: 0px;
 }
 
-th, td {
-    font-size: 14px;
-    padding-top: 10px;
-    padding-right: 100px;
+.tr-2 th {
+    font-size: 15px;
+    padding-left: 80px;
+}
+
+.tr-3 th {
+    font-size: 15px;
+    padding-left: 30px;
 }
 
 .divider {
@@ -28,14 +30,13 @@ th, td {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-table {
-    table-layout: flex;
-}
-
-tbody{
-    display: flex;
-}
-
 thead {
     display: flex;
 }
+
+.cart-head{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+

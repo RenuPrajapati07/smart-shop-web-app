@@ -5,9 +5,10 @@ import registerImg from '../../assets/register.png'
 import Card from '../../components/card/Card'
 import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../firebase/config'
+import { auth, db } from '../../firebase/config'
 import Loader from '../../components/loader/Loader'
 import { toast } from 'react-toastify'
+import { addDoc, collection } from 'firebase/firestore'
 
 const Register = () => {
 
@@ -28,11 +29,15 @@ const Register = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
+            const initialcartvalue=0;
             const user = userCredential.user;
             console.log(user)
+            addDoc(collection(db,"users"),{
+                 email: email, password: password, cart: initialcartvalue, uid: user.uid})
             setIsLoading(false)
             toast.success("Registration Successful...")
             navigate("/login")
+            
         })
         .catch((error) => {
             toast.error(error.message)

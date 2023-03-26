@@ -107,7 +107,7 @@
                         cursor: pointer;
                         font-size: 16px;
                         color: white;
-                        background: #0db19e;
+                        background: #0cad9b;
                         border-bottom: 3px solid #0cc0ab;
                         flex-grow: 1;
                         @include md {
@@ -116,6 +116,11 @@
                         svg {
                             margin-right: 10px;
                         }
+                        
+                    }
+                    .add-to-cart-button:hover {
+                        color: black;
+                        background: #0FE8CD;
                     }
                 }
 
@@ -173,3 +178,6 @@
         }
     }
 }
+
+ 
+ 

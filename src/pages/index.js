@@ -7,3 +7,4 @@ export {default as Admin} from "./admin/Admin"
 export {default as Cart} from "./cart/Cart"
 export {default as ProductSlider} from './products/product/ProductSlider'
 export {default as AllProduct} from './products/product/AllProduct'
+export {default as Checkout} from './checkout/Checkout'

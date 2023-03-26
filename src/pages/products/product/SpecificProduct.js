@@ -1,10 +1,10 @@
-import { doc, getDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { FaCartPlus, FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterest, FaTwitter } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
-import { db } from '../../../firebase/config';
+import { auth, db } from '../../../firebase/config';
 import { cartActions } from '../../../redux/slice/cartSlice';
 import '../../singleProduct/SingleProduct.scss';
 import ProductSlider from './ProductSlider';
@@ -13,7 +13,32 @@ const SpecificProduct = () => {
 
     const {type, id} = useParams()
     const [product, setProduct] = useState('');
+    
     //console.log(id,type)
+    function GetCurrentUser() {
+        const [user, setUser] = useState('')
+    
+        useEffect(() => {
+          auth.onAuthStateChanged(userlogged => {
+            if(userlogged) {
+              const getUsers = async () => {
+                const q = query(collection(db,"users"), where("uid","==",userlogged.uid))
+               //console.log(q)
+                const data = await getDocs(q);
+                setUser(data.docs.map((doc) => ({...doc.data(),id:doc.id})))
+              }
+              getUsers();
+            }
+            else{
+              setUser(null);
+            }
+          })
+        },[])
+        return user
+      }
+      const loggeduser = GetCurrentUser();
+      if(loggeduser){console.log(loggeduser[0].uid)}  
+    
 
     function GetCurrentProduct() {
         
@@ -33,21 +58,34 @@ const SpecificProduct = () => {
 
     const dispatch= useDispatch();
     const  handleAddToCart = () => {
+
+        if(loggeduser) {
+            /*dispatch(
+                cartActions.addToCart({
+                    id: product.id,
+                    productName: product.producttitle,
+                    price: product.price,
+                    imgUrl: product.productimage,
+                })
+            );*/
+            addDoc(collection(db, `cart-${loggeduser[0].uid}`),{
+                product, quantity: 1
+            }).then(() => {
+                toast.success('Product added to cart');
+
+            }).catch((error) => {toast.error(error.message)});
+
+        }
+
+        else{
+            toast.error('You need to login first')
+        }
         
-        dispatch(
-            cartActions.addToCart({
-                id: product.id,
-                productName: product.producttitle,
-                price: product.price,
-                imgUrl: product.productimage,
-            })
-        );
+       
         //navigate("/cart");
         //console.log(product.id, product.producttitle)
         
-        toast.success('product added to cart successfully.',{
-            toastId: 'success1',
-        })
+        
     };
 
   return (
@@ -70,13 +108,9 @@ const SpecificProduct = () => {
                         <span className="desc"></span>
 
                         <div className="cart-buttons">
-                            <div className="quantity-buttons">
-                                <span>-</span>
-                                <span>5</span>
-                                <span>+</span>
-                            </div>
+                            
                             <button
-                                className="add-to-cart-button"
+                                className="--btn add-to-cart-button"
                                 onClick={() => handleAddToCart()}
                             >
                                 <FaCartPlus size={20} />

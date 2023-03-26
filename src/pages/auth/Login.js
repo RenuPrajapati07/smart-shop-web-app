@@ -1,20 +1,21 @@
-import {useState } from 'react'
+import {useEffect, useState } from 'react'
 import styles from './auth.module.scss'
 import loginImg from '../../assets/login.png'
 import {Link, useNavigate} from 'react-router-dom'
 import {FcGoogle} from 'react-icons/fc'
 import Card from '../../components/card/Card'
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
-import { auth } from '../../firebase/config'
+import { auth, db } from '../../firebase/config'
 import Loader from '../../components/loader/Loader'
 import { toast } from 'react-toastify'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 const Login = () => {
 
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
     const[isLoading, setIsLoading] = useState(false);
-
+    
     const navigate = useNavigate()
 
     const loginUser = (e) => {

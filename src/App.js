@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 //components
 import {Header, Footer, AddProduct} from "./components"
 //pages
-import {Home, Contact, Login, Register, Reset, Admin, Cart, ProductSlider, AllProduct} from "./pages";
+import {Home, Contact, Login, Register, Reset, Admin, Cart, ProductSlider, AllProduct, Checkout} from "./pages";
 import SpecificProduct from "./pages/products/product/SpecificProduct"
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
           <Route path="/product-type/men" element={<AllProduct type={'Mens Wear'} />} />
           <Route path="/product-type/women" element={<AllProduct type={'Womens Wear'} />} />
           <Route path="/product/:type/:id" element={<SpecificProduct />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       <Footer/>
       </BrowserRouter>

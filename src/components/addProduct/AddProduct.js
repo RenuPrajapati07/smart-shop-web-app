@@ -28,7 +28,7 @@ const Addproduct = () => {
             if(userlogged) {
               const getUsers = async () => {
                 const q = query(usersCollectionRef, where("uid","==",userlogged.uid))
-               console.log(q)
+               
                 const data = await getDocs(q);
                 setUser(data.docs.map((doc) => ({...doc.data(),id:doc.id})))
               }
@@ -38,7 +38,7 @@ const Addproduct = () => {
               setUser(null);
             }
           })
-        },[user])
+        },[])
         return user
     }
 

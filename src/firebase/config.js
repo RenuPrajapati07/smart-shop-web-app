@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore"
 import { getStorage} from "firebase/storage"
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAfVeO_HkKpdnwn4dbfN2-eFgK-JDiVAsA",
-  authDomain: "smartshop-67693.firebaseapp.com",
-  projectId: "smartshop-67693",
-  storageBucket: "smartshop-67693.appspot.com",
-  messagingSenderId: "198198503263",
-  appId: "1:198198503263:web:4f11aab94d801836d978ea"
+  apiKey: "AIzaSyC11J8lzWEXHO7MWZPfH0jZ53JsKLzkREU",
+  authDomain: "ecom-web-app-2d543.firebaseapp.com",
+  projectId: "ecom-web-app-2d543",
+  storageBucket: "ecom-web-app-2d543.appspot.com",
+  messagingSenderId: "125158945092",
+  appId: "1:125158945092:web:a9d8e6f1fcaa25b9ef2711"
 };
 
 // Initialize Firebase

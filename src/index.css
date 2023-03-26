@@ -301,6 +301,10 @@ p {
   font-weight: 575;
 }
 
+.--btn-shop {
+  display: block;
+  align-items: right;
+}
 .--btn-primary {
   color: #fff;
   background:#0bbba6e1;
