@@ -19,8 +19,12 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
+    "react-simple-chatbot": "^0.6.1",
     "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.6",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
+    "styled-components": "^4.4.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -49,5 +53,17 @@
   },
   "devDependencies": {
     "sass": "^1.58.3"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
 }

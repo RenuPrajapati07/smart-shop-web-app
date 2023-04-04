@@ -197,7 +197,7 @@ const Header = () => {
               </ShowOnLogout>
 
               <ShowOnLogin>
-              <NavLink to="/order-history" className={activeLink}>My Order</NavLink>
+              <NavLink to="/myorder" className={activeLink}>My Order</NavLink>
               </ShowOnLogin> 
 
               <ShowOnLogin>

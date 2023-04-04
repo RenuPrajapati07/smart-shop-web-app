@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 import { db } from '../../firebase/config';
 import { cartActions } from '../../redux/slice/cartSlice';
-import './CartCard.css'
+import './CartCard.scss'
 
 const CartCard = (props) => {
 
-  //const cartItems = useSelector((state) => state.cart.cartItems)
-  //const totalAmount = useSelector((state) => state.cart.totalAmount)
     const [prodquantity, setProdQuantity] = useState(props.itemdata.quantity);
     
     let p = (props.itemdata.product.price)*prodquantity

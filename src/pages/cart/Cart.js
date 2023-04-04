@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Container,Row,Col} from 'reactstrap';
 import { AiOutlineDelete } from 'react-icons/ai'
-import './Cart.css'
+import './Cart.scss'
 
 import { cartActions } from '../../redux/slice/cartSlice'
 import { useSelector, useDispatch } from 'react-redux';
@@ -63,7 +63,7 @@ const Cart = () => {
   }
 
   return (
-    <div>
+    <div className='main-div'>
       <div className="sec-heading">
         Shopping Cart    
       </div> 
@@ -102,9 +102,9 @@ const Cart = () => {
               />
             ))}
           </div> 
-          <div>
-            <button className='--btn --btn-primary --btn-shop ' onClick={backtoshop} > Back To Shop </button>
-            <button className='--btn --btn-primary ' onClick={checkout} > Checkout </button>
+          <div className='btn-shop'>
+            <button className='--btn --btn-primary --btn-shop' onClick={backtoshop} > Back To Shop </button>
+            <button className='--btn --btn-primary --btn-shop' onClick={checkout} > Checkout </button>
           </div>
         </div>
         ) 

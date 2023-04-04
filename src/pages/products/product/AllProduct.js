@@ -5,36 +5,33 @@ import SpecificProduct from './SpecificProduct';
 
 const AllProduct = (props) => {
 
-    const [products, setProducts] =  useState([]);
+  const [products, setProducts] =  useState([]);
     
-    useEffect(() =>{
-      const getProducts = () => {
-        const productsArray = [];
-        const path = `products-${props.type.toUpperCase()}`;
-        console.log(path);
-    
-        getDocs(collection(db, path)).then((querySnapshot) => {
-          querySnapshot.forEach((doc)=> {
-            productsArray.push({...doc.data(),id:doc.id})
-          })
-          setProducts(productsArray)
-        }).catch((error) => {
-          console.log(error.message);
+  useEffect(() =>{
+    const getProducts = () => {
+      const productsArray = [];
+      const path = `products-${props.type.toUpperCase()}`;
+      getDocs(collection(db, path)).then((querySnapshot) => {
+        querySnapshot.forEach((doc)=> {
+          productsArray.push({...doc.data(),id:doc.id})
         })
-      }
-      getProducts()
-    }, [])
-    
-      return (
-        <div>
-          {products.map((product) => (
-            <SpecificProduct 
-            key = {product.id}
-            product={product}/>
-          ))}
-        </div>
-        
-      )
-    }    
+        setProducts(productsArray)
+      }).catch((error) => {
+        console.log(error.message);
+      })
+    }
+    getProducts()
+  }, [])
+  
+  return (
+    <div>
+      {products.map((product) => (
+        <SpecificProduct 
+        key = {product.id}
+        product={product}/>
+      ))}
+    </div>  
+  )
+}    
 
 export default AllProduct

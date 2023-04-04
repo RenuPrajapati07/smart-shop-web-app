@@ -4,11 +4,11 @@ import 'react-toastify/dist/ReactToastify.css'
 //components
 import {Header, Footer, AddProduct} from "./components"
 //pages
-import {Home, Contact, Login, Register, Reset, Admin, Cart, ProductSlider, AllProduct, Checkout} from "./pages";
+import {Home, Contact, Login, Register, Reset, Admin, Cart, ProductSlider, AllProduct, Checkout, OrderHistory, ChatTalk} from "./pages";
 import SpecificProduct from "./pages/products/product/SpecificProduct"
 
 function App() {
-
+  
   return (
     <>
       <BrowserRouter>
@@ -28,7 +28,10 @@ function App() {
           <Route path="/product-type/women" element={<AllProduct type={'Womens Wear'} />} />
           <Route path="/product/:type/:id" element={<SpecificProduct />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/myorder" element={<OrderHistory />} />
+          <Route path="/chattalk" element={<ChatTalk />} />
         </Routes>
+        
       <Footer/>
       </BrowserRouter>
     </>

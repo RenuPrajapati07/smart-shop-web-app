@@ -1,4 +1,4 @@
-import {useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './auth.module.scss'
 import loginImg from '../../assets/login.png'
 import {Link, useNavigate} from 'react-router-dom'
@@ -8,7 +8,6 @@ import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 
 import { auth, db } from '../../firebase/config'
 import Loader from '../../components/loader/Loader'
 import { toast } from 'react-toastify'
-import { collection, getDocs, query, where } from 'firebase/firestore'
 
 const Login = () => {
 

@@ -8,3 +8,5 @@ export {default as Cart} from "./cart/Cart"
 export {default as ProductSlider} from './products/product/ProductSlider'
 export {default as AllProduct} from './products/product/AllProduct'
 export {default as Checkout} from './checkout/Checkout'
+export {default as OrderHistory} from './orderHistory/OrderHistory'
+export {default as ChatTalk} from './products/product/ChatTalk'

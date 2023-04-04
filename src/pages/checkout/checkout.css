@@ -1,0 +1,7 @@
+.checkout-div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 700px;
+    padding-top: 60px;
+}
