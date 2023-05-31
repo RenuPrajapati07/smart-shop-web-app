@@ -27,7 +27,7 @@ const Header = () => {
   useEffect (() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user)
+        //console.log(user)
         if(user.displayName == null) {
           const u1 = user.email.substring(0, user.email.indexOf("@"));
           const uName = u1.charAt(0).toUpperCase() + u1.slice(1);
@@ -73,7 +73,7 @@ const Header = () => {
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user)
+        //console.log(user)
         if(displayName === "Admin") {
           toast.success("Admin Login Successful...")
           navigate("/admin")
@@ -100,7 +100,7 @@ const Header = () => {
         if(userlogged) {
           const getUsers = async () => {
             const q = query(collection(db,"users"), where("uid","==",userlogged.uid))
-            console.log(q)
+            //console.log(q)
             const data = await getDocs(q);
             setUser(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
           };

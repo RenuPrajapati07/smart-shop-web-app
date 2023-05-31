@@ -31,7 +31,7 @@ const Register = () => {
             // Signed in 
             const initialcartvalue=0;
             const user = userCredential.user;
-            console.log(user)
+            //console.log(user)
             addDoc(collection(db,"users"),{
                  email: email, password: password, cart: initialcartvalue, uid: user.uid})
             setIsLoading(false)

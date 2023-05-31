@@ -17,6 +17,10 @@ const Home = () => {
             Womens Fashion
           </div>
           <ProductSlider type={'Womens Wear'}/> 
+          <div className="sec-heading">
+            Shoes
+          </div>
+          <ProductSlider type={'Shoes'}/> 
         </div>
       </div>
     </div>

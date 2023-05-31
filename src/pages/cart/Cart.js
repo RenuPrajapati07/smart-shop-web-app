@@ -22,7 +22,7 @@ const Cart = () => {
         if(userlogged) {
           const getUsers = async () => {
             const q = query(collection(db,"users"), where("uid","==",userlogged.uid))
-            console.log(q)
+            //console.log(q)
             const data = await getDocs(q);
             setUser(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
           };

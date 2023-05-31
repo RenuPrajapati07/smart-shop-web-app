@@ -13,7 +13,7 @@ useEffect(() => {
     const getProducts = () => {
     const productsArray = [];
     const path = `products-${props.type.toUpperCase()}`;
-    console.log(props);
+    //console.log(props);
 
     getDocs(collection(db, path)).then((querySnapshot) => {
       querySnapshot.forEach((doc)=> {
