@@ -74,8 +74,7 @@ const Header = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(user)
-        if(user.displayName === "renu prajapati") {
-          
+        if(displayName === "Admin") {
           toast.success("Admin Login Successful...")
           navigate("/admin")
         }

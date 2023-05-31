@@ -25,8 +25,8 @@ export const ShowOnLogout = ({children}) => {
 
     const Email = useSelector(selectEmail);
 
-    if(Email === "prajapatirenu790@gmail.com") {
-        console.log(Email)
+    if(Email === "admin@gmail.com") {
+        //console.log(Email)
         return children;
     }
     return null;
