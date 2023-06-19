@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/%7Bsmart-shop-web-app%7D/static/css/main.66a5485b.css",
-    "main.js": "/%7Bsmart-shop-web-app%7D/static/js/main.6303c563.js",
-    "static/media/login.png": "/%7Bsmart-shop-web-app%7D/static/media/login.7f4d832c02952f6f4b5a.png",
-    "static/media/resetPassword.png": "/%7Bsmart-shop-web-app%7D/static/media/resetPassword.66b3bfb10d3a7ccc4a8d.png",
-    "static/media/register.png": "/%7Bsmart-shop-web-app%7D/static/media/register.2b19737a3e664691e710.png",
-    "static/media/loader5.gif": "/%7Bsmart-shop-web-app%7D/static/media/loader5.904e37271614180be90a.gif",
-    "static/media/revicons.eot": "/%7Bsmart-shop-web-app%7D/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/%7Bsmart-shop-web-app%7D/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/%7Bsmart-shop-web-app%7D/static/media/revicons.e8746a624ed098489406.woff",
-    "index.html": "/%7Bsmart-shop-web-app%7D/index.html",
-    "main.66a5485b.css.map": "/%7Bsmart-shop-web-app%7D/static/css/main.66a5485b.css.map",
-    "main.6303c563.js.map": "/%7Bsmart-shop-web-app%7D/static/js/main.6303c563.js.map"
+    "main.css": "/smart-shop-web-app/static/css/main.fc3b5932.css",
+    "main.js": "/smart-shop-web-app/static/js/main.0b620ab3.js",
+    "static/media/login.png": "/smart-shop-web-app/static/media/login.7f4d832c02952f6f4b5a.png",
+    "static/media/resetPassword.png": "/smart-shop-web-app/static/media/resetPassword.66b3bfb10d3a7ccc4a8d.png",
+    "static/media/register.png": "/smart-shop-web-app/static/media/register.2b19737a3e664691e710.png",
+    "static/media/loader5.gif": "/smart-shop-web-app/static/media/loader5.904e37271614180be90a.gif",
+    "static/media/revicons.eot": "/smart-shop-web-app/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/smart-shop-web-app/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/smart-shop-web-app/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/smart-shop-web-app/index.html",
+    "main.fc3b5932.css.map": "/smart-shop-web-app/static/css/main.fc3b5932.css.map",
+    "main.0b620ab3.js.map": "/smart-shop-web-app/static/js/main.0b620ab3.js.map"
   },
   "entrypoints": [
-    "static/css/main.66a5485b.css",
-    "static/js/main.6303c563.js"
+    "static/css/main.fc3b5932.css",
+    "static/js/main.0b620ab3.js"
   ]
 }
