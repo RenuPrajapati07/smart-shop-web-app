@@ -6,7 +6,7 @@ import {HiOutlineMenu} from 'react-icons/hi'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth, db } from '../../firebase/config';
 import { toast, ToastContainer } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { SET_ACTIVE_USER } from '../../redux/slice/authSlice';
 import { REMOVE_ACTIVE_USER } from '../../redux/slice/authSlice';
 import ShowOnLogin, { ShowOnAdminLogin, ShowOnLogout } from '../hiddenLink/hiddenLink';
@@ -15,8 +15,6 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 const Header = () => {
 
   const [showMenu, setShowMenu] = useState(false);
-  const [showCart, setShowCart] = useState(false);
-  //const [showSearch, setShowSearch] = useState(false);
   
   const [displayName, setDisplayName] = useState("");
   const navigate = useNavigate();
@@ -121,7 +119,7 @@ const Header = () => {
     const getcartdata = async () => {
       const cartArray = [];
       const path = `cart-${loggeduser[0].uid}`
-      getDocs(collection(db, path)). then((querySnapshot) => {
+      getDocs(collection(db, path)).then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           cartArray.push({ ...doc.data(), id: doc.id})
         });
@@ -132,7 +130,7 @@ const Header = () => {
   }
 
   const cart = (
-    <span className={styles.cart} onClick={() => setShowCart(true)}>
+    <span className={styles.cart}>
       <Link to="/cart">
         Cart
         <FaShoppingCart size={20}/>

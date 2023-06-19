@@ -29,6 +29,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -52,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "sass": "^1.58.3"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
@@ -65,5 +68,5 @@
   "bugs": {
     "url": ""
   },
-  "homepage": ""
+  "homepage": "http://{github-RenuPrajapati07}.github.io/{smart-shop-web-app}"
 }

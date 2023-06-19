@@ -5,7 +5,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {FcGoogle} from 'react-icons/fc'
 import Card from '../../components/card/Card'
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
-import { auth, db } from '../../firebase/config'
+import { auth } from '../../firebase/config'
 import Loader from '../../components/loader/Loader'
 import { toast } from 'react-toastify'
 
@@ -23,9 +23,6 @@ const Login = () => {
 
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          
-          const user = userCredential.user;
-          //console.log(user)
           setIsLoading(false)
           toast.success("Login Successful...")
           navigate("/")

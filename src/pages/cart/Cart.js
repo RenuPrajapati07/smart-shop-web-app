@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {Container,Row,Col} from 'reactstrap';
-import { AiOutlineDelete } from 'react-icons/ai'
+import {Row} from 'reactstrap';
 import './Cart.scss'
 
-import { cartActions } from '../../redux/slice/cartSlice'
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../../firebase/config';
 import CartCard from './CartCard';
@@ -15,7 +12,6 @@ const Cart = () => {
 
   function GetCurrentUser() {
     const [user, setUser] = useState('')
-    const usersCollectionRef = collection(db, "users")
 
     useEffect(() => {
       onAuthStateChanged(auth, (userlogged) => {
@@ -67,7 +63,7 @@ const Cart = () => {
       <div className="sec-heading">
         Shopping Cart    
       </div> 
-      {cartdata.length != 0 ? 
+      {cartdata.length !== 0 ? 
         (<div>
           <div className='cart-head'>
           <div>
